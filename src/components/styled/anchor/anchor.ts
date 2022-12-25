@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Anchor = styled.a`
   display: block;
-  text-align:  center;
+  text-align: center;
 
   margin: 0;
   padding: 0;

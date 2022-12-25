@@ -11,6 +11,8 @@ export const defaultTheme = {
     blackText: '#232629',
     grey: '#525960',
     greyLight: '#e3e6e8',
+    greyTextLight: '#babfc4',
+    greyTextDark: '#9199a1',
     white: '#ffffff',
     whiteImpure: '#f8f9f9',
     orange: '#f2740d',
