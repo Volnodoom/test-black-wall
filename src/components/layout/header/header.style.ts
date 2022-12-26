@@ -16,8 +16,10 @@ const HeaderStyle = styled.header`
   position: sticky;
   top: 0;
   margin: 0 auto;
-  width: 1440px;
+
+  width: 100%;
   height: 50px;
+  z-index: 1000;
 
   background-color: ${({ theme }) => theme.color.whiteImpure};
   border-top: ${({ theme }) => `3px solid ${theme.color.orange}`};
