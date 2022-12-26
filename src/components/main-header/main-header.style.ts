@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as FindIcon } from "assets/img/find.svg";
 import { ReactComponent as DiscoverIcon } from "assets/img/discover.svg";
 import { setDimensions } from "utils/mixins";
-import { Anchor, Li, Ul } from "components/styled";
+import { ButtonLikeLink, Li, Ul } from "components/styled";
 
 const HeaderBase = styled.header`
   position: relative;
@@ -132,21 +132,6 @@ const ChoiceMessage = styled.h2`
   text-align: center;
   font-size: ${({ theme }) => theme.font.regular};
   font-weight: 400;
-`;
-
-const ButtonLikeLink = styled(Anchor)`
-  padding: 12px 32px;
-  margin: 0 auto;
-  width: 211px;
-
-  font-weight: 700;
-  color: ${({ theme }) => theme.color.white};
-  border-radius: 5px;
-
-  &:link,
-  &:visited {
-    color: ${({ theme }) => theme.color.white};
-  }
 `;
 
 const ChoiceLeftButtonLike = styled(ButtonLikeLink)`
