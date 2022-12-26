@@ -1,7 +1,7 @@
 import { Li, Ul } from "components/styled";
 import * as S from "./footer.style";
 
-const Footer = () => {
+const FooterBlock = () => {
   return (
     <S.Footer>
       <S.FooterWrapper>
@@ -229,4 +229,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterBlock;

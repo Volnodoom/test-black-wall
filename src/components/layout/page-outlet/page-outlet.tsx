@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Footer } from "../footer/footer.style";
+import FooterBlock from "../footer-block/footer-block";
 import Header from "../header/header";
 
 const PageOutlet = () => {
@@ -7,7 +7,7 @@ const PageOutlet = () => {
     <>
       <Header />
       <Outlet />
-      <Footer />
+      <FooterBlock />
     </>
   );
 };
