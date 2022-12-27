@@ -1,4 +1,4 @@
-import { Li } from "components/styled";
+import TagList from "components/tag-list/tag-list";
 import * as S from "./results.style";
 
 const Results = () => {
@@ -21,20 +21,7 @@ const Results = () => {
             <S.DataColumn>How to write code in an optimal style</S.DataColumn>
             <S.DataColumnThird $width={150}>5</S.DataColumnThird>
             <S.DataColumn>
-              <S.TagList>
-                <Li>
-                  <S.TagLink href="#">VS code</S.TagLink>
-                </Li>
-                <Li>
-                  <S.TagLink href="#">style</S.TagLink>
-                </Li>
-                <Li>
-                  <S.TagLink href="#">code</S.TagLink>
-                </Li>
-                <Li>
-                  <S.TagLink href="#">approach</S.TagLink>
-                </Li>
-              </S.TagList>
+              <TagList tags={["VS code", "style", "code", "approach"]} />
             </S.DataColumn>
           </S.DataRow>
         </tbody>

@@ -21,3 +21,7 @@ export type ButtonProps = {
 export type DataColumnType = {
   $width?: number;
 }
+
+export type CardContentWrapperType = {
+  $isComment?: boolean;
+}
