@@ -112,7 +112,7 @@ const CardTextOption = styled.p`
   line-height: 17px;
 `;
 
-const CardTextOptionLink = styled.a`
+const CardTextOptionLink = styled(Anchor)`
   text-decoration: underline;
 
   &:link,
@@ -127,8 +127,6 @@ const CardTextOptionLink = styled.a`
 `;
 
 const CardRightButtonLike = styled(ButtonLikeLink)`
-  /* display: flex;
-  align-items: center; */
   width: auto;
   background-color: ${({ theme }) => theme.color.blue};
 

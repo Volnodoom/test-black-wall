@@ -10,7 +10,7 @@ const TagList = ({ tags }: TagListType) => {
     <S.TagList>
       {tags.map((tag, index) => (
         <Li key={`list-key-${index}`}>
-          <S.TagLink href={`/question/tagged/${tag}`}>{tag}</S.TagLink>
+          <S.TagLink to={`/question/tagged/${tag}`}>{tag}</S.TagLink>
         </Li>
       ))}
     </S.TagList>
