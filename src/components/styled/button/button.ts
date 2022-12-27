@@ -18,15 +18,6 @@ const Button = styled.button<ButtonProps>`
   border: ${({ $border }) => $border || 'none'};
   border-radius: ${({ $radius }) => $radius || 0 };
   cursor: pointer;
-
-  /* &:focus,
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 0.6;
-  } */
 `;
 
 export default Button;

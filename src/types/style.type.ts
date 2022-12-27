@@ -17,3 +17,7 @@ export type ButtonProps = {
   $border?: string,
   disabled?: boolean,
 }
+
+export type DataColumnType = {
+  $width?: number;
+}

@@ -74,10 +74,8 @@ body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
 
   font-family: 'Source-sans-pro', Arial, sans-serif;
   font-style: normal;

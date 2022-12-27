@@ -1,13 +1,14 @@
 import MainClients from "components/main-clients/main-clients";
 import MainHeader from "components/main-header/main-header";
-import * as S from "./main.style";
+import Results from "pages/results/results";
 
 const Main = () => {
   return (
-    <S.MainPage>
-      <MainHeader />
-      <MainClients />
-    </S.MainPage>
+    <>
+      {/* <MainHeader />
+      <MainClients /> */}
+      <Results />
+    </>
   );
 };
 

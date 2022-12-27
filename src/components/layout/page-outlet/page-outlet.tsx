@@ -1,14 +1,17 @@
 import { Outlet } from "react-router";
 import FooterBlock from "../footer-block/footer-block";
 import Header from "../header/header";
+import * as S from "./page-outlet.style";
 
 const PageOutlet = () => {
   return (
-    <>
+    <S.PageWrapper>
       <Header />
-      <Outlet />
+      <S.PageOutletWrapper>
+        <Outlet />
+      </S.PageOutletWrapper>
       <FooterBlock />
-    </>
+    </S.PageWrapper>
   );
 };
 
