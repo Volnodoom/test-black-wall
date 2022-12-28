@@ -72,6 +72,15 @@ const QuestionCard = () => {
 
         <QuestionCardUser userName={"Aureo Beck"} timeUpdate={"43 mins ago"} />
       </S.CardContentWrapper>
+
+      <S.CardPagination>
+        <S.CardPaginationItem $isSelected to="1">
+          1
+        </S.CardPaginationItem>
+        <S.CardPaginationItem to="2">2</S.CardPaginationItem>
+        <S.CardPaginationItem to="3">3</S.CardPaginationItem>
+        <S.CardPaginationItem to="">Next</S.CardPaginationItem>
+      </S.CardPagination>
     </S.CardWrapper>
   );
 };
