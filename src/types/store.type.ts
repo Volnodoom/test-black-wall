@@ -70,14 +70,14 @@ export type ClientQuestionResponseType = ClientResponseBaseType & {
 export type ServerAnswerDataType = {
   'answer_id': number,
   body: string,
-  creation_date: number,
+  'creation_date': number,
   owner: ServerOwnerType,
 }
 
 export type ClientAnswerDataType = {
   answerId: number,
   body: string,
-  creation_date: number,
+  creationDate: number,
   owner: ClientOwnerType,
 }
 
@@ -129,6 +129,17 @@ export type ClientUserTagsResponseType = ClientResponseBaseType & {
   items: ClientUserTagsDataType[],
 }
 
+type SimplePieceQuestionDataType = {
+  questionId: string,
+  dataItem: ClientQuestionDataType,
+}
+
+export type AddQuestionsByUserTagsType = {
+  userId: string,
+  tag: string,
+  questions: SimplePieceQuestionDataType[],
+}
+
 export type QuestionAnswerStateType = {
   requestQuestion: {
     [x: string]: ClientQuestionResponseType,
@@ -136,13 +147,23 @@ export type QuestionAnswerStateType = {
   requestAnswer: {
     [x: string]: ClientAnswerResponseType,
   } | null,
-  requestTags: {
-    [x: string]: ClientTagsResponseType,
-  } | null,
+  requestTags: ClientTagsResponseType | null,
   requestUserTags: {
     [x: string]: ClientUserTagsResponseType,
   } | null,
+  requestQuestionUserTags: {
+    [userId: string]: {
+      selectedTags:  string[],
+      normalizedQuestions: {
+        [questionId: string]: ClientQuestionDataType,
+      },
+    },
+  } | null,
   activeRequest: string | null,
   loadingQuestionStatus: LoadingStatus,
+  loadingSearchStatus: LoadingStatus,
   loadingAnswersStatus: LoadingStatus,
+  loadingTagStatus: LoadingStatus,
+  loadingUserTagsStatus: LoadingStatus,
+  loadingQuestionByTagsStatus: LoadingStatus,
 }

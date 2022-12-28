@@ -1,19 +1,19 @@
 import MainClients from "components/main-clients/main-clients";
 import MainHeader from "components/main-header/main-header";
+import { useAppDispatch } from "hooks/useAppDispatch";
 import { useEffect } from "react";
-import { APIRoutes, BACKEND_URL } from "utils/constants";
 
 const Main = () => {
-  useEffect(() => {
-    const asyncFetch = async () => {
-      const url = BACKEND_URL + APIRoutes.UserTopTags(2448918);
-      console.log(url);
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-    };
+  const dispatch = useAppDispatch();
 
-    // asyncFetch();
+  useEffect(() => {
+    // dispatch(fetchCustomSearch({ question: "react" }));
+    // dispatch(fetchAllQuestions({}));
+    // dispatch(fetchQuestionByUserTag({ userId: "2448918", tagName: "bash" }));
+    // dispatch(fetchAnswers({ questionId: "17066250" }));
+    // dispatch(fetchTags({}));
+    // dispatch(fetchUserTags({ userId: "2448918" }));
+    // dispatch(fetchCustomSearch({ question: "react" }));
   }, []);
 
   return (

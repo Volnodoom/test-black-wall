@@ -6,6 +6,7 @@ export const FILTER_QUESTION_API_VALUE = '!XZp2NhVcXBiDo0o(zMoCB7_gNsiE.1w3OUHBY
 export const FILTER_ANSWER_API_VALUE = '!8.X7X4_Bf5QZnoyshTf6IQZAaezx(6DH1RqBm';
 export const FILTER_TAGS_API_VALUE = '!.KBELfb(W92ZXNO09z(nKV1On1pOv';
 export const FILTER_TOP_USER_TAGS_API_VALUE = '!-xFeQd*12TC*D9ag5TrrfOq6';
+export const ALL_QUESTIONS = 'ALL QUESTIONS';
 
 export const AppRoutes = {
   Root: '/',
@@ -24,6 +25,15 @@ export const APIRoutes = {
   UserTopTags: (userId: number, page: number = ONE) => `users/${userId}/top-tags?key=${UNIQ_KEY}&page=${page}&site=stackoverflow&filter=${FILTER_TOP_USER_TAGS_API_VALUE}`,
   UserTopQuestionsByTag: (userId: number, tagName: string, page: number = ONE) => `users/${userId}/tags/${tagName}/top-questions?key=${UNIQ_KEY}&page=${page}&order=desc&sort=activity&site=stackoverflow&filter=${FILTER_QUESTION_API_VALUE}`,
 } as const;
+
+export enum APIAction {
+  FetchSearch = 'questions/fetchCustomSearch',
+  FetchQuestions = 'questions/fetchAll',
+  FetchAnswers = 'answer/fetch',
+  FetchTags = 'tags/fetch',
+  FetchUserTopTags = 'user/fetchTags',
+  FetchUserQuestionsByTags = 'user/fetchQuestionsByTags',
+}
 
 export enum LoadingStatus {
   Idle = 'idle',
