@@ -1,3 +1,4 @@
+import { AppRoutes } from "utils/constants";
 import * as S from "./main-header.style";
 
 const MainHeader = () => {
@@ -11,12 +12,12 @@ const MainHeader = () => {
               Find the best answer to your technical question, help others
               answer theirs
             </S.ChoiceMessage>
-            <S.ChoiceLeftButtonLike href="/users/signup?ssrc=product_home">
+            <S.ChoiceLeftButtonLike to={AppRoutes.Blank}>
               Join the community
             </S.ChoiceLeftButtonLike>
             <S.ChoiceTextOption>
               or{" "}
-              <S.ChoiceTextOptionLink href="/questions">
+              <S.ChoiceTextOptionLink to={AppRoutes.Result}>
                 search content
               </S.ChoiceTextOptionLink>
             </S.ChoiceTextOption>
@@ -28,7 +29,7 @@ const MainHeader = () => {
               Want a secure, private space for your technical knowledge?
             </S.ChoiceMessage>
 
-            <S.ChoiceRightButtonLike href="https://stackoverflow.co/teams">
+            <S.ChoiceRightButtonLike to={AppRoutes.Blank}>
               Discover Teams
             </S.ChoiceRightButtonLike>
           </S.HeaderChoiceRight>

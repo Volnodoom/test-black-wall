@@ -1,3 +1,4 @@
+import { AppRoutes } from "utils/constants";
 import * as S from "./main-clients.style";
 
 const MainClients = () => {
@@ -5,7 +6,7 @@ const MainClients = () => {
     <S.Clients>
       <S.ClientWrapper>
         <S.ClientCardLeft>
-          <S.ClientCardLink href="/questions">
+          <S.ClientCardLink to={AppRoutes.Result}>
             <S.HeaderLogoIcon aria-hidden="true" />
             <S.HeaderLogoText aria-hidden="true" />
           </S.ClientCardLink>
@@ -20,19 +21,19 @@ const MainClients = () => {
             challenges, and one of the most popular websites in the world.
           </S.CardText>
 
-          <S.CardLeftButtonLike href="/users/signup?ssrc=product_home">
+          <S.CardLeftButtonLike to={AppRoutes.Blank}>
             Join the community
           </S.CardLeftButtonLike>
           <S.CardTextOption>
             or{" "}
-            <S.CardTextOptionLink href="/questions">
+            <S.CardTextOptionLink to={AppRoutes.Result}>
               search content
             </S.CardTextOptionLink>
           </S.CardTextOption>
         </S.ClientCardLeft>
 
         <S.ClientCardRight>
-          <S.ClientCardLink href="https://stackoverflow.co/teams">
+          <S.ClientCardLink to={AppRoutes.Blank}>
             <S.LogoForTeams aria-hidden="true" />
           </S.ClientCardLink>
 
@@ -54,11 +55,11 @@ const MainClients = () => {
           </S.CardDecorBeyondWord>
 
           <S.CardButtonLikeWrapper>
-            <S.CardRightButtonLike href="https://stackoverflow.co/explore-teams">
+            <S.CardRightButtonLike to={AppRoutes.Blank}>
               For large organizations <S.IconOrganization />
             </S.CardRightButtonLike>
 
-            <S.CardRightButtonLike href="https://stackoverflow.co/teams">
+            <S.CardRightButtonLike to={AppRoutes.Blank}>
               For small teams <S.IconPeople />
             </S.CardRightButtonLike>
           </S.CardButtonLikeWrapper>

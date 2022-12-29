@@ -59,7 +59,7 @@ const HeaderMenuDecor = styled.div`
 
 `;
 
-const HeaderLogo = styled(Button)`
+const HeaderLogo = styled(Anchor)`
   display: flex;
   align-items: center;
 

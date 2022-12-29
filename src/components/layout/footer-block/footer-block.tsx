@@ -1,34 +1,32 @@
 import { Li, Ul } from "components/styled";
+import { AppRoutes } from "utils/constants";
 import * as S from "./footer.style";
 
 const FooterBlock = () => {
   return (
     <S.Footer>
       <S.FooterWrapper>
-        <S.FooterLogoLink
-          href="https://stackoverflow.com"
-          aria-label="Stack Overflow."
-        >
+        <S.FooterLogoLink to={AppRoutes.Blank} aria-label="Stack Overflow.">
           <S.FooterLogo aria-hidden="true" />
         </S.FooterLogoLink>
 
         <S.FooterNav>
           <S.FooterNavColumn>
             <S.FooterNavTitle>
-              <S.FooterNavTitleLink href="https://stackoverflow.com">
+              <S.FooterNavTitleLink to={AppRoutes.Blank}>
                 Stack Overflow
               </S.FooterNavTitleLink>
             </S.FooterNavTitle>
 
             <Ul>
               <Li>
-                <S.FooterNavItemListLink href="/questions">
+                <S.FooterNavItemListLink to={AppRoutes.Result}>
                   Questions
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="/help">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Help
                 </S.FooterNavItemListLink>
               </Li>
@@ -37,30 +35,32 @@ const FooterBlock = () => {
 
           <S.FooterNavColumn>
             <S.FooterNavTitle>
-              <S.FooterNavTitleLink href="#">Products</S.FooterNavTitleLink>
+              <S.FooterNavTitleLink to={AppRoutes.Blank}>
+                Products
+              </S.FooterNavTitleLink>
             </S.FooterNavTitle>
 
             <Ul>
               <Li>
-                <S.FooterNavItemListLink href="https://stackoverflow.co/teams">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Teams
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackoverflow.co/advertising">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Advertising
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackoverflow.co/collectives">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Collectives
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackoverflow.co/talent">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Talent
                 </S.FooterNavItemListLink>
               </Li>
@@ -69,61 +69,61 @@ const FooterBlock = () => {
 
           <S.FooterNavColumn>
             <S.FooterNavTitle>
-              <S.FooterNavTitleLink href="https://stackoverflow.co/">
+              <S.FooterNavTitleLink to={AppRoutes.Blank}>
                 Company
               </S.FooterNavTitleLink>
             </S.FooterNavTitle>
             <Ul>
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   About
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Press
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Work Here
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Legal
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Privacy Policy
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Terms of Service
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Contact Us
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Cookie Settings
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="#">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Cookie Policy
                 </S.FooterNavItemListLink>
               </Li>
@@ -132,55 +132,55 @@ const FooterBlock = () => {
 
           <S.FooterNavColumn>
             <S.FooterNavTitle>
-              <S.FooterNavTitleLink href="#">
+              <S.FooterNavTitleLink to={AppRoutes.Blank}>
                 Stack Exchange Network
               </S.FooterNavTitleLink>
             </S.FooterNavTitle>
 
             <Ul>
               <Li>
-                <S.FooterNavItemListLink href="https://stackexchange.com/sites#technology">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Technology
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackexchange.com/sites#cUlturerecreation">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   CUlture &amp; recreation
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackexchange.com/sites#lifearts">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Life &amp; arts
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackexchange.com/sites#science">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Science
                 </S.FooterNavItemListLink>
               </Li>
 
               <Li>
-                <S.FooterNavItemListLink href="https://stackexchange.com/sites#professional">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Professional
                 </S.FooterNavItemListLink>
               </Li>
               <Li>
-                <S.FooterNavItemListLink href="https://stackexchange.com/sites#business">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Business
                 </S.FooterNavItemListLink>
               </Li>
 
               <S.FooterNavItemListBrake>
-                <S.FooterNavItemListLink href="https://api.stackexchange.com/">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   API
                 </S.FooterNavItemListLink>
               </S.FooterNavItemListBrake>
 
               <Li>
-                <S.FooterNavItemListLink href="https://data.stackexchange.com/">
+                <S.FooterNavItemListLink to={AppRoutes.Blank}>
                   Data
                 </S.FooterNavItemListLink>
               </Li>
@@ -191,29 +191,31 @@ const FooterBlock = () => {
         <S.FooterSocial>
           <S.FooterSocialList>
             <Li>
-              <S.FooterNavItemListLink href="#">Blog</S.FooterNavItemListLink>
+              <S.FooterNavItemListLink to={AppRoutes.Blank}>
+                Blog
+              </S.FooterNavItemListLink>
             </Li>
 
             <Li>
-              <S.FooterNavItemListLink href="https://www.facebook.com/officialstackoverflow/">
+              <S.FooterNavItemListLink to={AppRoutes.Blank}>
                 Facebook
               </S.FooterNavItemListLink>
             </Li>
 
             <Li>
-              <S.FooterNavItemListLink href="https://twitter.com/stackoverflow">
+              <S.FooterNavItemListLink to={AppRoutes.Blank}>
                 Twitter
               </S.FooterNavItemListLink>
             </Li>
 
             <Li>
-              <S.FooterNavItemListLink href="https://linkedin.com/company/stack-overflow">
+              <S.FooterNavItemListLink to={AppRoutes.Blank}>
                 LinkedIn
               </S.FooterNavItemListLink>
             </Li>
 
             <Li>
-              <S.FooterNavItemListLink href="https://www.instagram.com/thestackoverflow">
+              <S.FooterNavItemListLink to={AppRoutes.Blank}>
                 Instagram
               </S.FooterNavItemListLink>
             </Li>

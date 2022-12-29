@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as FindIcon } from "assets/img/find.svg";
 import { ReactComponent as DiscoverIcon } from "assets/img/discover.svg";
 import { setDimensions } from "utils/mixins";
-import { ButtonLikeLink, Li, Ul } from "components/styled";
+import { Anchor, ButtonLikeLink, Li, Ul } from "components/styled";
 
 const HeaderBase = styled.header`
   position: relative;
@@ -159,7 +159,7 @@ const ChoiceTextOption = styled.p`
   line-height: 17px;
 `;
 
-const ChoiceTextOptionLink = styled.a`
+const ChoiceTextOptionLink = styled(Anchor)`
   text-decoration: underline;
 
   &:link,

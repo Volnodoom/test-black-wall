@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Anchor = styled.a`
+const Anchor = styled(Link)`
   display: block;
   text-align: center;
 
