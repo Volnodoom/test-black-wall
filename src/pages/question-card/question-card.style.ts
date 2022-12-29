@@ -1,17 +1,9 @@
-import { Anchor } from "components/styled";
 import styled, { css } from "styled-components";
-import { CardContentWrapperType, CardPaginationItemType } from "types/style.type";
+import { CardContentWrapperType } from "types/style.type";
 
 const commentSeparationDecor = css`
   padding-bottom: 16px;
   border-bottom: ${({ theme }) => `1px solid ${theme.color.greyLight}`};
-`;
-
-const hoverPagination = css`
-  &:hover {
-    background-color: ${({ theme }) => theme.color.blueDark};
-
-  }
 `;
 
 const CardWrapper = styled.div`
@@ -63,25 +55,26 @@ const CardContentWrapper = styled.div<CardContentWrapperType>`
   max-width: 650px;
 
   ${({ $isComment }) => $isComment && commentSeparationDecor}
-`;
 
-const CardContent = styled.p`
-  margin: 0;
-  padding: 0 0 16px;
+  p {
+    margin: 0;
+    padding: 0 0 16px;
 
-  font-size: ${({ theme }) => theme.font.small};
-  line-height: 23px;
-`;
+    font-size: ${({ theme }) => theme.font.small};
+    line-height: 23px;
+    text-align: justify;
+  }
 
-const CardContentCode = styled.pre`
-  padding: 12px;
-  margin-bottom: 24px;
+  pre {
+    padding: 12px;
+    margin-bottom: 24px;
 
-  background-color: ${({ theme }) => theme.color.greyLight};
-  font-size: ${({ theme }) => theme.font.subSmall};
-  line-height: 17px;
-  white-space: pre;
-  overflow-x: scroll;
+    background-color: ${({ theme }) => theme.color.greyLight};
+    font-size: ${({ theme }) => theme.font.subSmall};
+    line-height: 17px;
+    white-space: pre;
+    overflow-x: scroll;
+  }
 `;
 
 const CardAnswerTitle = styled.h2`
@@ -89,32 +82,6 @@ const CardAnswerTitle = styled.h2`
 
   font-size: ${({ theme }) => theme.font.regular};
   line-height: 25px;
-`;
-
-const CardPagination = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  gap: 0 5px;
-`;
-
-const CardPaginationItem = styled(Anchor)<CardPaginationItemType>`
-  padding: 0 8px;
-
-  border: ${({ theme }) => `1px solid ${theme.color.greyLight}`};
-  border-radius: 5px;
-  background-color: ${({ theme, $isSelected }) => $isSelected ? theme.color.orange : theme.color.whiteImpure};
-
-  color: ${({ theme, $isSelected }) => $isSelected ? theme.color.white : theme.color.blackText};
-  font-size: ${({ theme }) => theme.font.subSmall};
-  line-height: 25px;
-
-  &:link,
-  &:visited {
-    color: ${({ theme, $isSelected }) => $isSelected ? theme.color.white : theme.color.blackText};
-  }
-
-
-  ${({ $isSelected }) => !$isSelected && hoverPagination};
 `;
 
 export {
@@ -125,9 +92,5 @@ export {
   CardInfoTimeTitle,
   CardInfoTimeData,
   CardContentWrapper,
-  CardContent,
-  CardContentCode,
   CardAnswerTitle,
-  CardPagination,
-  CardPaginationItem,
 }

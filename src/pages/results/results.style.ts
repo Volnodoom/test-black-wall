@@ -11,14 +11,15 @@ const ResultsWrapper = styled.div`
   padding: 30px 0;
   margin: 0 auto;
   width: calc(100% - 324px);
-`
+`;
 
 const ResultsTable = styled.table`
-  border-collapse: collapse;
-  border-width: 0;
+  margin-bottom: 20px;
   width: 100%;
   min-width: 730px;
 
+  border-collapse: collapse;
+  border-width: 0;
   border-bottom: ${({ theme }) => `7px solid ${theme.color.grey}`};
 `;
 
@@ -60,6 +61,11 @@ const DataRow = styled.tr`
   &:not(:last-of-type) {
     border-bottom: ${({ theme }) => `1px solid ${theme.color.greyLight}`};
   }
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.color.greyLight};
+  }
 `;
 
 const DataColumn = styled.td<DataColumnType>`
@@ -67,6 +73,10 @@ const DataColumn = styled.td<DataColumnType>`
   max-width: ${({ $width }) => $width ? $width + 'px' : 'none'};
 
   ${({ $width }) => $width && textOverflow};
+
+  &:first-of-type {
+    color: ${({ theme }) => theme.color.blue};
+  }
 `;
 
 const DataColumnThird = styled(DataColumn)`

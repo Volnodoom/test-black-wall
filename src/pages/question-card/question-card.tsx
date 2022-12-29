@@ -1,86 +1,83 @@
+import { useSelector } from "react-redux";
+import Pagination from "components/pagination/pagination";
 import QuestionCardUser from "components/question-card-user/question-card-user";
 import TagList from "components/tag-list/tag-list";
+import * as selector from "store/data-question-answer/data-question-answer.selector";
 import * as S from "./question-card.style";
-
-const XXX = String.raw`
-<Pressable onPress={()=>{}}>
-
-<View style={{ flex: 1, flexDirection: 'row',width: widthP || width,borderBottomWidth:2 }}>
-{
-item.components.map((comp, componentIndex) =>{
-return getComponent({item: {...comp,key: &#x24;{item.key}[&#x24;{index}].&#x24;{comp.key},
-watchKeys: getWatchKeys(index, item, comp),
-    },
-},b[componentIndex],heightP|| height,control,setValue,getValues)})}
-</View>
-</Pressable>
-`;
+import { DATE_MULTIPLIER, LOCAL, TimeFormat } from "utils/constants";
+import ContentLoading from "components/content-loading/content-loading";
 
 const QuestionCard = () => {
+  const questionResponse = useSelector(selector.getSingleQuestionResponse);
+  const answerResponse = useSelector(selector.getAnswerResponse);
+
+  if (!questionResponse) {
+    return <ContentLoading />;
+  }
+
+  const calculateCreationDate = (date: number) =>
+    new Date(date * DATE_MULTIPLIER).toLocaleString(LOCAL, TimeFormat);
+  const modifDate = new Date(
+    questionResponse.lastActivityDate * DATE_MULTIPLIER
+  ).toLocaleString(LOCAL, TimeFormat);
+
+  console.log(questionResponse.lastActivityDate);
+
   return (
     <S.CardWrapper>
       <S.CardInfoWrapper>
-        <S.CardInfoTitle>
-          open up action on longpress of list in react native
-        </S.CardInfoTitle>
+        <S.CardInfoTitle>{questionResponse.title}</S.CardInfoTitle>
         <S.CardInfoTime>
           <S.CardInfoTimeTitle>Asked</S.CardInfoTimeTitle>
-          <S.CardInfoTimeData>today</S.CardInfoTimeData>
+          <S.CardInfoTimeData>
+            {calculateCreationDate(questionResponse.creationDate)}
+          </S.CardInfoTimeData>
 
           <S.CardInfoTimeTitle>Modified </S.CardInfoTimeTitle>
-          <S.CardInfoTimeData>today</S.CardInfoTimeData>
+          <S.CardInfoTimeData>
+            {questionResponse.lastActivityDate ? modifDate : "none"}
+          </S.CardInfoTimeData>
 
           <S.CardInfoTimeTitle>Viewed</S.CardInfoTimeTitle>
-          <S.CardInfoTimeData>11 times</S.CardInfoTimeData>
+          <S.CardInfoTimeData>{questionResponse.viewCount}</S.CardInfoTimeData>
         </S.CardInfoTime>
       </S.CardInfoWrapper>
 
       <S.CardContentWrapper>
-        <S.CardContent>
-          just like in the gmail app i need help when user longpress on certain
-          mail in inbox the message will be highlight followed by a pop up on
-          the header contain bin icon archive and other option how do i do it so
-          far i displayed only the list using map and i added each pressable
-        </S.CardContent>
+        <div dangerouslySetInnerHTML={{ __html: questionResponse.body }}></div>
 
-        <S.CardContentCode>{XXX}</S.CardContentCode>
-
-        <TagList tags={["react-native"]} />
+        <TagList tags={questionResponse.tags} />
         <QuestionCardUser
-          userName={"Himadrish K Aralere"}
-          timeUpdate={"55 mins ago"}
+          userName={questionResponse.owner.displayName}
+          timeUpdate={calculateCreationDate(questionResponse.creationDate)}
+          srcUrl={questionResponse.owner.profileImage}
         />
       </S.CardContentWrapper>
 
-      <S.CardAnswerTitle>1 Answer</S.CardAnswerTitle>
-      <S.CardContentWrapper $isComment>
-        <S.CardContent>
-          Try checking for onLongPress as doc Called if the time after onPressIn
-          lasts longer than 500 milliseconds. This time period can be customized
-          with delayLongPress
-        </S.CardContent>
+      <S.CardAnswerTitle>
+        {questionResponse.answerCount} Answers
+      </S.CardAnswerTitle>
 
-        <QuestionCardUser userName={"Aureo Beck"} timeUpdate={"43 mins ago"} />
-      </S.CardContentWrapper>
+      {answerResponse ? (
+        answerResponse.items.map((item) => (
+          <S.CardContentWrapper
+            $isComment
+            key={`uniq-value-key-${item.answerId}`}
+          >
+            <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
 
-      <S.CardContentWrapper $isComment>
-        <S.CardContent>
-          Try checking for onLongPress as doc Called if the time after onPressIn
-          lasts longer than 500 milliseconds. This time period can be customized
-          with delayLongPress
-        </S.CardContent>
+            <QuestionCardUser
+              userName={item.owner.displayName}
+              timeUpdate={calculateCreationDate(item.creationDate)}
+              srcUrl={item.owner.profileImage}
+            />
+          </S.CardContentWrapper>
+        ))
+      ) : (
+        <ContentLoading />
+      )}
 
-        <QuestionCardUser userName={"Aureo Beck"} timeUpdate={"43 mins ago"} />
-      </S.CardContentWrapper>
-
-      <S.CardPagination>
-        <S.CardPaginationItem $isSelected to="1">
-          1
-        </S.CardPaginationItem>
-        <S.CardPaginationItem to="2">2</S.CardPaginationItem>
-        <S.CardPaginationItem to="3">3</S.CardPaginationItem>
-        <S.CardPaginationItem to="">Next</S.CardPaginationItem>
-      </S.CardPagination>
+      {/* <Pagination totalPageNumber={2} /> */}
     </S.CardWrapper>
   );
 };

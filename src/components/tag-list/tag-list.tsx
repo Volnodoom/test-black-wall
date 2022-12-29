@@ -6,6 +6,10 @@ type TagListType = {
 };
 
 const TagList = ({ tags }: TagListType) => {
+  if (tags.length === 0) {
+    return <></>;
+  }
+
   return (
     <S.TagList>
       {tags.map((tag, index) => (

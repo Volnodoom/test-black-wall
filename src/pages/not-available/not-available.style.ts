@@ -41,7 +41,7 @@ const NotAvailableLink = styled(Anchor)`
   &:hover,
   &:active {
     color: ${({ theme }) => theme.color.blue};
-   }
+  }
 `;
 
 export {

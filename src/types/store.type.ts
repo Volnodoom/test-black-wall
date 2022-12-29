@@ -140,6 +140,13 @@ export type AddQuestionsByUserTagsType = {
   questions: SimplePieceQuestionDataType[],
 }
 
+export type AllClientResponseTypes = ClientQuestionResponseType | ClientAnswerResponseType | ClientTagsResponseType | ClientUserTagsResponseType | null;
+
+export type ActiveRequestType = {
+  requestStor: string,
+  id: string,
+}
+
 export type QuestionAnswerStateType = {
   requestQuestion: {
     [x: string]: ClientQuestionResponseType,
@@ -159,7 +166,8 @@ export type QuestionAnswerStateType = {
       },
     },
   } | null,
-  activeRequest: string | null,
+  activeRequest: string | ActiveRequestType,
+  currentPage: number,
   loadingQuestionStatus: LoadingStatus,
   loadingSearchStatus: LoadingStatus,
   loadingAnswersStatus: LoadingStatus,

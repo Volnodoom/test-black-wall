@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AddQuestionsByUserTagsType, ClientAnswerResponseType, ClientQuestionResponseType, ClientTagsResponseType, ClientUserTagsResponseType, QuestionAnswerStateType } from 'types/store.type';
-import { LoadingStatus, NameSpace } from 'utils/constants';
+import { ActiveRequestType, AddQuestionsByUserTagsType, ClientAnswerResponseType, ClientQuestionResponseType, ClientTagsResponseType, ClientUserTagsResponseType, QuestionAnswerStateType } from 'types/store.type';
+import { ALL_QUESTIONS, LoadingStatus, NameSpace, ONE } from 'utils/constants';
 import { fetchAllQuestions, fetchAnswers, fetchCustomSearch, fetchQuestionByUserTag, fetchTags, fetchUserTags } from './api-actions';
 
 const initialState: QuestionAnswerStateType = {
@@ -9,7 +9,8 @@ const initialState: QuestionAnswerStateType = {
   requestTags: null,
   requestUserTags: null,
   requestQuestionUserTags: null,
-  activeRequest: null,
+  activeRequest: ALL_QUESTIONS,
+  currentPage: ONE,
   loadingQuestionStatus: LoadingStatus.Idle,
   loadingSearchStatus: LoadingStatus.Idle,
   loadingAnswersStatus: LoadingStatus.Idle,
@@ -179,8 +180,11 @@ export const dataQuestionAnswer = createSlice({
       })
 
     },
-    addActiveRequest: (state, action: PayloadAction<string>) => {
+    addActiveRequest: (state, action: PayloadAction<string | ActiveRequestType>) => {
       state.activeRequest = action.payload;
+    },
+    updateCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -254,4 +258,5 @@ export const {
   addUserTagsRequest,
   addQuestionsByUserTagsRequest,
   addActiveRequest,
+  updateCurrentPage,
 } = dataQuestionAnswer.actions;

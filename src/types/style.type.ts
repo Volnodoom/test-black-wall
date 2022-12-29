@@ -27,5 +27,8 @@ export type CardContentWrapperType = {
 };
 
 export type CardPaginationItemType = {
+  $isHidden?: boolean,
   $isSelected?: boolean,
+  $hasBigSize?: boolean,
+
 };

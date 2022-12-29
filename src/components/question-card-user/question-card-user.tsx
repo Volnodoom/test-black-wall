@@ -4,9 +4,14 @@ import * as S from "./question-card-user.style";
 type QuestionCardUserType = {
   userName: string;
   timeUpdate: string;
+  srcUrl: string;
 };
 
-const QuestionCardUser = ({ userName, timeUpdate }: QuestionCardUserType) => {
+const QuestionCardUser = ({
+  userName,
+  timeUpdate,
+  srcUrl,
+}: QuestionCardUserType) => {
   return (
     <S.CardUserWrapper>
       <S.CardUserInteraction>
@@ -24,7 +29,7 @@ const QuestionCardUser = ({ userName, timeUpdate }: QuestionCardUserType) => {
         </S.CardUserInfoUpload>
         <S.CardUserLink to={AppRoutes.Blank}>
           <S.CardUserLinkText>{userName}</S.CardUserLinkText>
-          <S.CardUserLinkImg />
+          <S.CardUserLinkImg src={srcUrl} alt="." />
         </S.CardUserLink>
       </S.CardUserInfo>
     </S.CardUserWrapper>

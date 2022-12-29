@@ -1,8 +1,35 @@
 import { Li } from "components/styled";
-import { AppRoutes } from "utils/constants";
+import { useAppDispatch } from "hooks/useAppDispatch";
+import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router";
+import { addActiveRequest } from "store/data-question-answer/data-question-answer";
+import { ALL_QUESTIONS, ALL_TAGS, AppRoutes, TAG } from "utils/constants";
 import * as S from "./header.style";
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const [currentValue, setCurrentValue] = useState("");
+
+  const handleInputChange = (evt: ChangeEvent) => {
+    const inputValue = (evt.target as HTMLInputElement).value;
+    setCurrentValue(inputValue);
+  };
+
+  const handleOnSubmit = () => {
+    if (currentValue === "") {
+      dispatch(addActiveRequest(ALL_QUESTIONS));
+    }
+
+    if (currentValue === TAG) {
+      dispatch(addActiveRequest(ALL_TAGS));
+    }
+
+    navigate(AppRoutes.AbsoluteResult);
+    return;
+  };
+
   return (
     <S.HeaderStyle>
       <S.HeaderWrapper>
@@ -37,13 +64,14 @@ const Header = () => {
           </S.HeaderNavList>
         </nav>
 
-        <S.HeaderForm>
+        <S.HeaderForm onSubmit={handleOnSubmit}>
           <S.HederFormDecoration />
           <S.HeaderFormInput
             type="text"
             placeholder="Search..."
             maxLength={240}
             autoComplete="off"
+            onChange={handleInputChange}
           />
         </S.HeaderForm>
 
